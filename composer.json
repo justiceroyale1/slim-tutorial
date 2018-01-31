@@ -1,14 +1,13 @@
 {
-    "name": "slim/slim-skeleton",
-    "description": "A Slim Framework skeleton application for rapid development",
-    "keywords": ["microframework", "rest", "router", "psr7"],
-    "homepage": "http://github.com/slimphp/Slim-Skeleton",
+    "name": "rogramatic/slim-tutorial",
+    "description": "A Tutorial on how to create APIs using slim framework",
+    "keywords": ["microframework", "rest", "router", "psr4", "slim"],
+    "homepage": "http://github.com/justiceroyale1/slim-tutorial",
     "license": "MIT",
     "authors": [
         {
-            "name": "Josh Lockhart",
-            "email": "info@joshlockhart.com",
-            "homepage": "http://www.joshlockhart.com/"
+            "name": "Abutu Justice Royale",
+            "email": "justiceroyale1@gmail.com"
         }
     ],
     "require": {
@@ -20,8 +19,9 @@
     "require-dev": {
         "phpunit/phpunit": ">=4.8 < 6.0"
     },
-    "autoload-dev": {
+    "autoload": {
         "psr-4": {
+            "api\\": "src/api/",
             "Tests\\": "tests/"
         }
     },
