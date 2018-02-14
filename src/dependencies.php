@@ -1,7 +1,24 @@
 <?php
+
+use Illuminate\Contracts\Debug\ExceptionHandler;
+use api\exceptions\Handler;
+
 // DIC configuration
 
 $container = $app->getContainer();
+
+// database capsule
+$container['capsule'] = function ($c) {
+    $capsule = new Illuminate\Database\Capsule\Manager;
+    $capsule->addConnection($c['settings']['db']);
+    $capsule->setAsGlobal();
+    $capsule->bootEloquent();
+    $capsule->getContainer()->singleton(
+        ExceptionHandler::class,
+        Handler::class
+    );
+    return $capsule;
+};
 
 // view renderer
 $container['renderer'] = function ($c) {
