@@ -15,3 +15,11 @@ $app->get('/[{name}]', function (Request $request, Response $response, array $ar
 });
 
 $app->get('/api/employees', EmployeeController::class . ':getEmployees');
+
+$app->post('/api/employees', EmployeeController::class . ':createEmployee');
+
+$app->get('/api/employees/{id: [0-9]+}', EmployeeController::class . ':getEmployee');
+
+$app->put('/api/employees/{id: [0-9]+}', EmployeeController::class . ':updateEmployee');
+
+$app->delete('/api/employees/{id: [0-9]+}', EmployeeController::class . ':deleteEmployee');
