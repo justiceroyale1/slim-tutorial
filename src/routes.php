@@ -2,7 +2,7 @@
 
 use Slim\Http\Request;
 use Slim\Http\Response;
-use api\controllers\MemberController;
+use api\controllers\EmployeeController;
 
 // Routes
 
@@ -14,4 +14,12 @@ $app->get('/[{name}]', function (Request $request, Response $response, array $ar
     return $this->renderer->render($response, 'index.phtml', $args);
 });
 
-$app->get('/api/members', MemberController::class . ':getMembers');
+$app->get('/api/employees', EmployeeController::class . ':getEmployees');
+
+$app->post('/api/employees', EmployeeController::class . ':createEmployee');
+
+$app->get('/api/employees/{id: [0-9]+}', EmployeeController::class . ':getEmployee');
+
+$app->put('/api/employees/{id: [0-9]+}', EmployeeController::class . ':updateEmployee');
+
+$app->delete('/api/employees/{id: [0-9]+}', EmployeeController::class . ':deleteEmployee');
